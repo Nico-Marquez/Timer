@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMER</title>
+
+
+
+    <script>
+
+        function carga(){
+            var actividad = document.getElementById("actividad");
+            var titulo = document.getElementById("titulo");
+            var contadorActividad = 29;
+            var contadorDescanso = 15;
+            var imagen = document.getElementById('image');
+
+            setInterval(imprimir, 1000)
+            
+            
+            function imprimir(){
+            
+              actividad.innerHTML = contadorActividad;
+              titulo.innerHTML = "ACTIVIDAD";
+              contadorActividad--; 
+           // image.src = "bob_fuerza.gif"
+
+              while(contadorActividad <= -1){
+               
+                contadorActividad = 0;
+                actividad.innerHTML = contadorDescanso;    
+                titulo.innerHTML = "DESCANSO";
+                contadorDescanso--;
+                image.src = "bob_respirando.gif"
+               
+                if(contadorDescanso <= 0){ 
+                     image.src = "bob_fuerza.gif"
+                     contadorActividad = 30;
+                     contadorDescanso = 15;
+                } 
+             }
+            
+          }
+            
+        }
+
+
+    </script>
+
+
+</head>
+
+<body onload="carga()" class="bg-dark text-black">
+          <div class="container mt-5 mb-5" >
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3 mt-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title row justify-content-center" id="titulo">ACTIVIDAD</h5>
+                    <div class="row justify-content-center">
+                    <h1 id="actividad" style="align: center">30</h1>
+                  </div>
+                      <img id="image"
+                      src="bob_fuerza.gif"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                     </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+   
+</body>
+</html>
